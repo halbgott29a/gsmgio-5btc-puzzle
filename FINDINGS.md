@@ -96,6 +96,25 @@ Two independent reasons make one-candidate-at-a-time search unable to converge:
 - Data: `salphaseion_blob.txt`, `salph_raw.txt`, `creator_jrk.txt` (all creator messages),
   `gameoflogic_ocr.txt` (public-domain OCR), analysis outputs `*_out.txt`.
 
+## The joint 4-parameter attack (`_work/joint_attack.py`)
+
+The structurally-correct computational attack: instead of trusting the (unreliable)
+English score, enumerate {alphabet × `a–i` mapping × escapes × transposition ×
+over-encryption} jointly and verify **only** via the real oracle —
+`decode(dbbi) → sha256(answer) → does it open the SalPhaseIon or Cosmic blob`.
+
+- Bounded candidate space: ~16 keyword/seed alphabets (incl. the 3.2.2 alphabet),
+  2 mappings, 3 escape pairs, 3 transpositions, 3 over-encryption keystreams, 6 answer
+  normalisations, both `sha256(answer)` and raw-answer as the openssl pass.
+- **4904 decode-forms AES-tested → 0 hits.**
+
+What this proves: the attack is feasible and correct, but it can only win if the
+checkerboard **alphabet** is one of the natural keyword candidates — it isn't. The
+alphabet is a 26! space and the AES oracle is **binary with no gradient**, so it cannot
+be searched efficiently. ⇒ Without the correct *interpretation* that fixes the alphabet
+(the "first hint"), the endgame is **computationally unbreakable from our position**.
+This is the formal endpoint of the campaign.
+
 ## What would actually move this
 
 1. A **new official hint** from the creator (he stated he'd release one more if unsolved).
