@@ -1,0 +1,33 @@
+AES hits: 0
+
+TOP 30 candidates:
+[  34] dbbiR_byDBBI/a1i9o0/a2     $···@·!B*UMHa·aR434RA#C DK_>^:·444····&OJ#·4:
+[  32] dbbi_byINCASEinv/a1i9o0/a2 SJ ····;HO\·>D_H4·>··*·B8U·ULM4R·=b7#*%4·#%8·
+[  32] dbbi_byDBBIinv/a1i9o0/a2   Y·?·KXI8+R=A···L·6OXH··&7··484·\U?`H 47KH8J··
+[  32] dbbiR_byINCASE/a1i9o0/a2   8·D9K7·&·U···7·*H>LA_5·0U·HBU]I*RK 7=·H··V] ·
+[  31] grid7x13_rowsR/a1i9o0/a2   K·&···/4Y44·\:UH··KL4T>·DR··!$·+B·"4#M74·7·aB
+[  31] grid7x13_colsR_R/a1i9o0/a2 M8·7:8··R··UW#'J":4?7·· ·7·%···c·>M·N/>_S8*HA
+[  31] grid13x7_rowsR_R/a1i9o0/a2 ·7·8·Ca 6'··9K·!%·8?*>·@UX4XK··OR9Kb·4:!·H*··
+[  31] grid13x7_rowsR/a1i9o0/a2   ···*K·&44·_M4YH··NR:UT>·>+B4·!$·M7··"4%aB·4·7
+[  31] grid13x7_colsR_R/a1i9o0/a2 ·7NR··8HHT/O\·9·?%%··74?6A····#84&UR8··0cK>·$
+[  31] grid13x7_colsR/a1i9o0/a2   ·$·AOb-··4UX 87$····@5>74··%!>·7·cM,RHL9··XK4
+[  31] dbbi_byINCASE/a1i9o0/a2    \H·>7R·6LLa:R!>8···W67·V8- 3#·Q·_7····WL?K%··
+[  31] dbbi_byDBBI/a1i9o0/a2      ··············!!!!,,777777777BBBBBMMMMMXXXXcc
+[  31] dbbiR_byDBBIinv/a1i9o0/a2  -44··KY_9·R·18··>4!ER5··AUI>#!>9N·U·V·97·*·9·
+[  30] grid7x13_rowsR_R/a1i9o0/a2 ·Ca·7·79K 6'·?*·!%··X>·@R8KK··KX4b·4;R9*···!·
+[  30] grid7x13_cols_R/a1i9o0/a2  8·9H·:7··R·%US6"O#5>:· ··$·8_···HA·C0N·5U\·>H
+[  30] grid7x13_colsR/a1i9o0/a2   ·>H.5U\C0N·HA·_···$·8· ··5>:6"O#%US··R··:78·9
+[  30] grid7x13_cols/a1i9o0/a2    *HA·_S8·N/E·>M···`7·%·· ·4?7'J"5UW#·R··:8·M8·
+[  30] grid7x13_boust_R/a1i9o0/a2 8·9K:8···R·UW#6"O&4?7· ··7·%_····>MC0N·_S8·>H
+[  30] grid7x13_boust/a1i9o0/a2   *HA·5U\·N/CHA····a$·8·· ·5>:'J"7%US·R···:7M8·
+[  30] grid13x7_cols_R/a1i9o0/a2  9··XK4·cM,RHL·%!>·7·@5>74·87$······4UX ·$·AOb
+[  30] grid13x7_cols/a1i9o0/a2    0cK>·$·&UR8······#8;·74?6A·9·?%%·HHT/O\·7NR··
+[  30] grid13x7_boust_R/a1i9o0/a2 9··XK4·HHT/O\·%!>·7··74?6A87$····&UR8···$·AOb
+[  30] grid13x7_boust/a1i9o0/a2   0cK>·$···4UX ····#87@5>74··9·?%%·cM,RHL·7NR··
+[  30] dbbi_byDBBIinv/a0i8/a2     N·4·@M>- G26···A·+DM=···,··)-)·QJ4U=·),@=-?··
+[  27] dbbi_byINCASE/a0i8/a2      Q=·3,G·+AAV/G·3-···L+,·K-"·(··F·T,····LA4@···
+[  27] dbbi_byDBBI/a0i8/a2        ··················!!,,,,,,,,,77777BBBBBMMMMXX
+[  27] dbbiR_byINCASEinv/a1i9o0/a2 ··4····&8··^R·7T·M··A·47A?·`4 `N'·#@N··JB7·HE
+[  27] dbbiR_byINCASE/a0i8/a2     -·9.@,···J···,··=3A6T*·%J·=7JR>·G@·,2·=··KR··
+[  27] dbbiR_byDBBIinv/a0i8/a2    "))··@NT.·G·&-··3)·:G*··6J>3··3.C·J·K·.,···.·
+[  27] dbbiR_byDBBI/a0i8/a2       ····5··7·JB=V·VG)()G6·8·9@T3S/·)))·····D?··)/

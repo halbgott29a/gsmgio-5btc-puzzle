@@ -1,0 +1,173 @@
+### .py (29)
+         277  prime.py
+         909  moretest.py
+         997  puzzle.py
+        1018  encrypt_prime.py
+        1133  gsmgio_bunny_nest.py
+        1356  primetest.py
+        1488  rabbit.py
+        1569  ppp.py
+        1769  hexro3.py
+        1899  dbbi_sum_faed.py
+        2254  finder.py
+        2452  sa.py
+        3671  semifinal.py
+        5339  binvisualfina1.py
+        5349  binvisualfina2.py
+        5635  SalPhaseIon mapping .py
+        5885  libaes.py
+        6456  test3.py
+        7956  get_messages_from_export.py
+        8484  bacontypenull.py
+        8637  decall.py
+        8833  SalphaseionHush.py
+        9199  base9toX.py
+        9350  CosmicHush.py
+       13397  Salphaseion_Decoder.py
+       13722  checkallinone.py
+       23197  no6.py
+       29937  dbbib_faed_attack length analysis 3.py
+       50469  aesdecodemultiprocessing v5.py
+
+### .txt (32)
+          22  dbbdi and fead solve.txt
+         130  p32b.b64.txt
+         130  sa.b64.txt
+         387  dbbi (1).txt
+         474  lyrics.txt
+         790  dbbi.txt
+         910  p3.b64.txt
+        1820  cd.b64.txt
+        2426  canihaveallhint (1) (1).txt
+        2426  canihaveallhint (1).txt
+        2426  canihaveallhint.txt
+        3685  3.3.1.txt
+        4885  GSMG.txt
+        5368  jrk-history.txt
+        5768  data.txt
+        8589  data (1).txt
+        8618  Last solved and unsolved parts.txt
+        9380  MISC.txt
+       16700  696783482-puzzle-1.txt
+       19833  curve.txt
+       24818  Jrksplain.txt
+       27453  Jrk Bgrt Chat History.txt
+       46375  all_images_bitplane_results.txt
+       71976  Jrk_Bgrt_Groupchat_History.txt
+       73874  all_bitplane_results.txt
+       87825  asciiWhiteRabbit.txt
+       98142  jrk_all_messages.txt
+      199267  jan2023-aug2023.txt
+      281622  Cosmic (1).txt
+     1332115  jgfj.cl zhgchlwnbbkqgog (1).txt
+     1519104  a1z26.txt
+    30000943  found.txt
+
+### .md (3)
+        5090  text.md
+       16612  sQRt(follow the white rabbit) (1).md
+       16612  sQRt(follow the white rabbit).md
+
+### .csv (2)
+      364327  exhaustive_results.csv
+     1766302  frames.csv
+
+### .xlsx (4)
+       11447  note.xlsx
+       51175  p.xlsx
+       55219  rabbit puzzle.xlsx
+      140800  puzzle.xlsx
+
+### .docx (2)
+       12621  phase3.2allsolutions.docx
+       28478  Step one.docx
+
+### .rtf (1)
+       25577  gsmg.io_puzzlebinarymatrixanalysis.rtf
+
+### .cpp (1)
+         891  blueyellow.cpp
+
+### .cu (2)
+          69  constants.cu
+         420  main.cu
+
+### .h (2)
+         151  constants.h
+      385733  1752411872456.h
+
+### .pyx (1)
+       25985  aesdecodemultithread.pyx
+
+### .pdf (8)
+       79289  2020-301 (1).pdf
+       79289  2020-301.pdf
+      377641  158250373.pdf
+      377641  covertQRcodes.pdf
+    19542842  0809465167 (1).pdf
+    19542842  0809465167.pdf
+    19542842  Cosmic Duality (Mysteries of the Unknown).pdf
+    64481137  The game of logic -- Lewis Carroll .pdf
+
+### .zip (4)
+      266749  Gsmg Salt Checker.zip
+      530606  3_GSMGIO (1).zip
+      530606  3_GSMGIO.zip
+     1045032  brut.zip
+
+### .bin (4)
+          79  salphaseion_plain_79.bin
+        1327  cosmic_decrypted_verified.bin
+       59385  puzzle.bin
+     4892064  output_rgb.bin
+
+### .hex (1)
+        4925  phase3.2.hex
+
+### (none) (46)
+           1  bitdepth
+           1  bitdepth (1)
+           2  imageheight (1)
+           2  imagewidth (1)
+           3  filetype
+           3  filetype (1)
+           3  filetypeextension
+           3  filetypeextension (1)
+           3  imageheight
+           3  imagewidth
+           4  pixelsperunitx
+           4  pixelsperunitx (1)
+           4  pixelsperunity
+           4  pixelsperunity (1)
+           5  filename
+           5  imagesize (1)
+           5  megapixels
+           5  megapixels (1)
+           6  pixelunits
+           7  imagesize
+           8  filter
+           8  filter (1)
+           9  filesize (1)
+           9  mimetype
+           9  mimetype (1)
+          10  filepermissions
+          10  filepermissions (1)
+          10  filesize
+          10  srgbrendering
+          13  interlace
+          13  interlace (1)
+          14  colortype
+          14  colortype (1)
+          15  compression
+          15  compression (1)
+          23  filename (1)
+          25  fileaccessdate
+          25  fileaccessdate (1)
+          25  fileinodechangedate
+          25  fileinodechangedate (1)
+          25  filemodifydate
+          25  filemodifydate (1)
+          26  directory
+          35  directory (1)
+        1112  dcode-file
+       21910  4E
