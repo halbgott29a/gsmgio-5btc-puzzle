@@ -1,0 +1,7 @@
+# temp/heavy/regenerable artifacts — keep the repo to "only valuable"
+*.wav
+*.png
+*.log
+__pycache__/
+gameoflogic.txt          # empty markitdown output
+cosmicduality.txt        # OCR of copyrighted Time-Life book (excluded for copyright)
