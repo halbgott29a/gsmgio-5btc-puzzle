@@ -14,6 +14,11 @@ problem. Tools live in [`_work/`](./_work) and are reusable.
 > problem** that makes blind search/cryptanalysis provably unable to converge. The
 > missing piece is a single *interpretive* leap, not more compute.
 
+> **Update 2026-11-12:** see [Session 2](#session-2-2026-11-12--further-falsification) at the
+> end: live-page verification, a validated AES oracle, and seven more negative results
+> (clue corpus, prime zeroing, repeated keys, substring search, checkerboard +
+> transposition).
+
 ## The two unsolved strings
 
 ```
@@ -122,3 +127,139 @@ This is the formal endpoint of the campaign.
    over-encryption *together*, verifying only via the end-of-chain AES loop (expensive,
    low-probability, but the only computational path that respects the real structure).
 3. The single correct **interpretation of "the first hint"** that closes the loop at once.
+
+---
+
+## Session 2 (2026-11-12) — further falsification
+
+Same method as above: every hypothesis tested against a validated oracle, negatives
+reported. Scripts are in [`_work/session2/`](./_work/session2) (they use absolute Windows
+paths and, for `ckb.py`, a corpus of Project Gutenberg books in `corpus/pg*.txt`).
+
+### 1. The live page, verified
+
+`https://gsmg.io/89727c59…` was re-downloaded (HTTP 200, `Last-Modified` 2026-08-15). Its two
+textareas are **byte-identical** to the 2021 data used in this repo (895 chars + the 1328 B
+Cosmic Duality blob); only the file timestamp changed. The HTML has no comments, scripts,
+images or hidden text. Real order of the content:
+
+| # | Content | Meaning |
+|---|---|---|
+| 1 | `dbbi…` (91) | undecoded |
+| 2 | a/b blob (104 bits) | `matrixsumlist` |
+| 3 | `faed…` (570) | undecoded |
+| 4 | `z` + segment | `lastwordsbeforearchichoice` |
+| 5 | `z` + segment | `thispassword` |
+| 6 | `z` + `shabef` + `ourfirsthintisyourlastcommand` | "sha256 our first hint is your last command" |
+| 7 | AES blob #1 (80 B ct), split in two 64-char halves with an a/b blob between them | that blob = `enter` |
+| 8 | `shabef` + `anstoo` | "sha256 ans too" |
+| 9 | Cosmic Duality textarea (`Salted__`, 1328 B ct) | final blob |
+
+- **`enter` is the line break.** Each half of blob #1 is exactly 64 chars (openssl `-a` line
+  width); `enter` sits where the newline would be. It is not an independent clue.
+- Reading order suggests `blob #1 = AES(sha256(first hint))`, then
+  `Cosmic Duality = AES(sha256(ans))` with `ans` the output of blob #1 (same pipeline as above).
+- `faed` begins at raw offset 195 (91 + 104), right after the a/b blob.
+- `π(570) = 104` = bit length of the `matrixsumlist` blob. Probably chance; it produced nothing.
+
+### 2. Oracle validation
+
+`evp(sha256)` + AES-256-CBC + PKCS#7 reimplemented and checked against **solved** blobs from
+upstream: Phase 3 (key `sha256hex(causality…FEN)`) and Phase 3.2 (key `sha256hex(jacquefresco…)`)
+both decrypt to the expected plaintext. A "0 hits" below therefore means a real miss.
+
+### 3. Corrections to earlier assumptions
+
+- The 2026-01-01 message decodes to *"…here's a "tiny hint" <3."* (a first transcription
+  without "tiny" was wrong; redone with the right text).
+- `faed_base9.py` treated `faed` as base 9 (`a=0..i=8`). The SalPhaseIon notebook decodes the
+  `z`-segments as **decimal** digits (`abcdefghio -> 1234567890`) → int → hex → ASCII. That
+  reading of `faed`/`dbbi` was untested here until now (see 5.).
+
+### 4. Clue corpus as key — 0 hits
+
+Official hints and admin quotes 2020–2026 (transcribed from the upstream `hints/` images),
+~150 phrases incl. the three 2026 hints, with variants (raw/lower/upper/stripped, pairs).
+
+| Run | Base strings | Tests |
+|---|---|---|
+| 2026 hints + EO11110 / fefefe / 5binary themes | 917 | 14,672 |
+| All hints 2020–2026 | 32,132 | 642,640 |
+
+Forms: raw, sha256 hex (lower/upper), double sha256, md5; KDF sha256 and md5; both blobs.
+
+### 5. Structural attacks on `dbbi` / `faed` — all negative
+
+- **Prime "zeroing"** ("some characters need to be zeroed out", "prime part", 2021): zero /
+  delete / keep-only at prime positions (0- and 1-indexed, complement, squares) and at digit
+  *values* in every subset of {2,3,5,7}; `a1`/`a0` maps; decimal→hex→bytes and 2/3-digit ASCII;
+  on `dbbi`, `faed`, both concatenations, and the raw page; forward and reversed. ~1,080
+  variants, each also fed to the AES oracle. Pipeline sanity-checked: it recovers
+  `lastwordsbeforearchichoice` from the known segment. No structure, no hits.
+- **Row/column sums** of `dbbi` as 7×13 and 13×7 (the `matrixsumlist` idea), `a0`/`a1`, mod
+  9/10/26/27: nothing readable.
+- **Pairs/triples**: `faed` is indistinguishable from a shuffle of its own letters at unit
+  sizes 2, 3, 4 (z between −0.7 and +1.0 against 300 shuffles). No simple substitution over
+  digraphs/trigraphs. (`dbbi` k=4 offset 3 gave z=3.1 once in 12 tests; not significant.)
+- **Repeated `dbbi` as key** over `faed` (±, mod 9/10, both digit offsets, forward/reversed,
+  all 91 shifts; 1,456 variants): best IoC 0.1143, inside the random-key null (p99 0.1136,
+  max 0.1148).
+- **All substrings of the Phase 3.2 plaintext** (the creator's modified Architect speech) as
+  key, raw and sha256 hex, lengths 3..1539: **2,361,664** tests, 0 hits.
+- **Ordered combinations of the page's own words** (`matrixsumlist`, `lastwordsbefore…`,
+  `thispassword`, `sha256`/`shabef`, `ourfirsthint…`, `enter`, `anstoo`/`ans`/`answer`; 1–7
+  pieces; plus `yinyang`, `yellowblueprimes`, `primes` up to 4 pieces), with separators, case,
+  raw / sha256 / double sha256 / hash chains: **4,721,184** tests, 0 hits.
+
+### 6. `dbbi` as a straddling checkerboard — calibrated, negative
+
+Previous hill-climbing was inconclusive (trigram model from the README only; 6 restarts).
+Redone properly:
+
+- Model: with 9 symbols and 2 escapes the board has 7+9+9 = 25 cells = a 25-letter alphabet
+  (I=J). Given the escape pair, decoding is deterministic, leaving a monoalphabetic
+  substitution over ~25 token types. All 36 escape pairs tried, no assumption on the
+  `a–i → digit` order (absorbed by the alphabet).
+- English model: quadgrams from 2.6 M letters of 5 Gutenberg books. Solver: simulated
+  annealing with restarts, **calibrated** on known 60-token messages (it recovers them at
+  fit ≈ −4.1…−4.2, readable text).
+
+| | fit (mean log10 quadgram) |
+|---|---|
+| real English, 60 tokens | −4.1 … −4.2 |
+| `dbbi`, best of 36 escape pairs | −4.57 |
+| shuffled `dbbi`, best of 36 pairs (3 controls) | −4.43 … −4.54 |
+| `dbbi` + 33 grid readings (7×13 / 13×7 rows, cols, snake, spiral, diagonals, each reversed) × 36 pairs | best −4.34, unreadable |
+
+Result: `dbbi` is **not** a plain 9-symbol straddling checkerboard of English, with or without a
+simple grid transposition. Not covered: keyed columnar transposition (7! / 13! orders),
+mod-9/10 over-encryption with a keystream, 3-escape boards, non-English plaintext.
+
+### 7. What the page and hints add (no new key, but useful context)
+
+- Admin messages not listed above: *"Breaking salphation should be giving the feeling of the
+  phase's name"* (2021-05); *"You are at the prime part already"* (2021-03); *"some characters
+  need to be 'zeroed out'"* + primes required (2021-12); *"Once you hit a 'ying yang', you'll
+  be able to solve it the same day"* (2024-04); *"Partly."* to a question about the
+  "salvation part" (2024-04); 2026-07-12: *"My close friends have the best chance of solving
+  it… they don't have the skills some of you do. NOTE: that is a hint"* and *"The 5 btc was
+  never the actual prize."* — all consistent with an **interpretive** last step.
+- The Phase 3.2 plaintext itself says the end involves *"twenty three ciphers, sixteen
+  encryptions and/or seven intertwined passwords"*, *"return to the source code"* and
+  *"reinserting the prime basics"*; the 2023-02-23 hint gives the step order
+  yellow/blue → primes → matrix sumlist → last words before archichoice → yin yang.
+- Upstream (Naddiseo, 2026) fixed the truncated Phase 3 password (it ends with the full FEN
+  `…/3N1N2 b - - 0 1`) and added `unverified/`. Make sure any script that hashes it uses
+  the complete string. This fork has **not** been synced with upstream.
+- Upstream README now warns that a decryption without verifiable output structure is
+  indistinguishable from failure, and quotes the creator saying the remaining steps are
+  easier than those already solved. This argues against any path that needs all four
+  parameters of the joint attack at once.
+
+### Updated "what would move this"
+
+1. A new official hint (none since 2026-07-12).
+2. The correct interpretation of "our first hint is your last command" (all literal readings
+   above are exhausted).
+3. A cheap scoring function for **keyed** transposition / over-encryption of `dbbi`, which is
+   the only family of the structural model left open.
